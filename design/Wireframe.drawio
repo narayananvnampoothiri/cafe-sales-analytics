@@ -1,0 +1,234 @@
+<mxfile host="Electron" pages="5">
+  <diagram name="LOGIN" id="RSRttPBF21zIpkuBrgXt">
+    <mxGraphModel dx="1030" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EgLTz8I4AS-c1snnGa9t-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="370" width="400" x="90" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EgLTz8I4AS-c1snnGa9t-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;User Name&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="200" x="200" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="EgLTz8I4AS-c1snnGa9t-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" value="Password" vertex="1">
+          <mxGeometry height="30" width="200" x="200" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="EgLTz8I4AS-c1snnGa9t-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Forgot Passwor?" vertex="1">
+          <mxGeometry height="30" width="200" x="200" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="EgLTz8I4AS-c1snnGa9t-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=17;" value=" CafeAnalyst Logo" vertex="1">
+          <mxGeometry height="30" width="140" x="230" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EgLTz8I4AS-c1snnGa9t-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=15;" value=" Welcome to CafeAnalyst" vertex="1">
+          <mxGeometry height="30" width="210" x="200" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="3ffdrPhQmBQsgkERKZvY-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Login" vertex="1">
+          <mxGeometry height="30" width="105" x="247.5" y="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="_cSseO8ylZ_zyuQi6yb9" name=" Dashboard">
+    <mxGraphModel dx="1030" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dVYIVNH5E5xPgp_zQyDr-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="660" width="640" x="120" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="b9uTz9YiWsUChM1PUNAk-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Top Products&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="240" x="160" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="b9uTz9YiWsUChM1PUNAk-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Monthly Sales&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="240" x="400" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="b9uTz9YiWsUChM1PUNAk-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;AI Insights&amp;nbsp;&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="240" x="160" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="b9uTz9YiWsUChM1PUNAk-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Future Sales Prediction&amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="240" x="160" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="dVYIVNH5E5xPgp_zQyDr-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;| Logo | Dashboard | Upload | Reports | Logout&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="520" x="180" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="dVYIVNH5E5xPgp_zQyDr-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Total Sales&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="160" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="dVYIVNH5E5xPgp_zQyDr-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Expenses&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="290" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="dVYIVNH5E5xPgp_zQyDr-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;Profit&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="125" x="425" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="dVYIVNH5E5xPgp_zQyDr-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Sales Trend Chart&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="350" x="265" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="dVYIVNH5E5xPgp_zQyDr-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Orders&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="550" y="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="F_paL4tJmkgd8PeFy9_E" name="Upload">
+    <mxGraphModel dx="1030" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="930" width="610" x="110" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Logo | Dashboard | Upload | Reports | Logout&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="520" x="160" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;u&gt;&lt;b&gt;   Upload Sales Data&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="330" x="230" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Drag &amp;amp; Drop CSV/Excel File&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="480" x="160" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;labelPosition=center;verticalLabelPosition=middle;" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Selected File:&lt;/font&gt;&lt;span style=&quot;font-size: 18px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;July_Sales.xlsx&lt;/span&gt;" vertex="1">
+          <mxGeometry height="130" width="280" x="160" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-7" parent="1" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#E6E6E6;strokeColor=none;whiteSpace=wrap;" value="Upload" vertex="1">
+          <mxGeometry height="60" width="100" x="200" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;Data Preview&lt;/font&gt;&lt;div&gt;&lt;span style=&quot;font-size: 19px;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Date | Item | Qty | Price | Total&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="510" x="160" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;labelPosition=center;verticalLabelPosition=middle;" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;Validation Report&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;✔ Missing Values: 2&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;✔ Duplicate Rows: 1&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;✔ Invalid Data: 0&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="470" x="165" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;[ Clean Data ]&amp;nbsp;&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="160" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;[ Start AI Analysis ]&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="165" x="340" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="-AS2HZWQsqR9x1c4y64g-13" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;&amp;nbsp;Recent Uploads&lt;br&gt;July_Sales.xlsx&lt;br&gt;June_Sales.xlsx&lt;br&gt;May_Sales.xlsx&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="120" width="530" x="160" y="900" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="kGGC7PMfNQBiuTW59MJm" name="AI Insights">
+    <mxGraphModel dx="1030" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="VSm9fvQrqbOlquwhZJVg-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1070" width="660" x="80" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 23px;&quot;&gt;Logo | Dashboard | Upload | Reports | Logout&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="500" x="170" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 26px;&quot;&gt;&lt;u&gt;&lt;b&gt;   AI Insights&lt;/b&gt;&lt;/u&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="240" x="270" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--6" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Today&#39;s Business Summary&lt;/h1&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Total Sales : ₹42,350&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Profit : ₹13,250&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Orders : 215&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="520" x="130" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--7" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Best Selling Product&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Coffee ☕&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;120 cups sold&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="100" width="490" x="130" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--8" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Lowest Selling Product&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Brownie&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Only 8 sold&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="90" width="490" x="130" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--9" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Peak Business Hours&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;8:00 AM – 10:00 AM&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;6:00 PM – 8:00 PM&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="120" width="440" x="130" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--10" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Sales Trend&lt;/h1&gt;&lt;div&gt;📈&lt;font style=&quot;font-size: 16px;&quot;&gt; Sales increased by 18% compared to last week.&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="350" x="130" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--11" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Future Sales Prediction&lt;/h1&gt;&lt;div&gt;&amp;nbsp;&lt;font style=&quot;font-size: 17px;&quot;&gt;Expected Sales Tomorrow:₹46,000&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Confidence: 92%&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="410" x="130" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="zZZfbTgaBubUVRjHsNH--12" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;AI Recommendations&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Increase coffee stock.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Offer discounts on brownies.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Add one more staff member during weekends.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Promote cold coffee in the afternoon.&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Reduce unused inventory.&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="170" width="480" x="130" y="940" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="4gxxc0fVLaqEAolunUBD" name=" Reports">
+    <mxGraphModel dx="1030" dy="626" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TswDVNmH7DwkialUyKV3-126" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="1270" width="680" x="110" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 23px;&quot;&gt;Logo | Dashboard | Upload | Reports | Logout&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="500" x="160" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;u&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;REPORTS&lt;/font&gt;&lt;/u&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="270" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-3" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Report Summary&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Total Sales        : ₹1,25,000&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Total Expenses     : ₹75,000&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Net Profit         : ₹50,000&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Total Orders       : 2,350&lt;/font&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="170" width="410" x="205" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-4" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Available Reports&lt;/h1&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt; Daily Report&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Weekly Report&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Monthly Report&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Yearly Report&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="405" x="205" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-100" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;&lt;b&gt;Report Preview&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="480" x="210" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-104" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;h2&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Date&lt;/font&gt;&lt;/h2&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="210" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-105" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Salese&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="330" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-106" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;Expenses&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-107" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Profit&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="570" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-108" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="01 Jul" vertex="1">
+          <mxGeometry height="60" width="120" x="210" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-109" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹4,500" vertex="1">
+          <mxGeometry height="60" width="120" x="330" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-110" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹2,800" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-111" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹1,700" vertex="1">
+          <mxGeometry height="60" width="120" x="570" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-112" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="02 Jul" vertex="1">
+          <mxGeometry height="60" width="120" x="210" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-113" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹5,200" vertex="1">
+          <mxGeometry height="60" width="120" x="330" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-114" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹3,000&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-115" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹2,200" vertex="1">
+          <mxGeometry height="60" width="120" x="570" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-116" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="03 Jul" vertex="1">
+          <mxGeometry height="60" width="120" x="210" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-117" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹4,900" vertex="1">
+          <mxGeometry height="60" width="120" x="330" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-118" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹2,900" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-119" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="₹2,000" vertex="1">
+          <mxGeometry height="60" width="120" x="570" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-120" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Charts Summary&lt;/h1&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;📈 Sales Trend&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;🥧 Product Distribution&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;📊 Monthly Profit&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="120" width="445" x="205" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-124" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Export Options&lt;/h1&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt; Download PDF&amp;nbsp;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Download Excel&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Print Report&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="120" width="320" x="210" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="TswDVNmH7DwkialUyKV3-125" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;labelPosition=center;verticalLabelPosition=middle;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Generated On:18 July 2026&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="295" x="205" y="1210" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

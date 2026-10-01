@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CafeAnalyst - Inventory & Stock Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inventory.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            ☕ CafeAnalyst
+        </div>
+        <div class="menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/upload">Upload</a>
+            <a href="/ai-insights">AI Insights</a>
+            <a href="/reports">Reports</a>
+            <a href="/inventory" class="active">Inventory</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Flash Message Toast -->
+        {% if message %}
+        <div class="alert-toast">
+            <span>✅ {{ message }}</span>
+            <span style="cursor:pointer;" onclick="this.parentElement.style.display='none'">&times;</span>
+        </div>
+        {% endif %}
+
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="header-title">
+                <h1>📦 Inventory & Stock Management</h1>
+                <p>Track ingredients, monitor low-stock thresholds, and calculate recipe preparation costs.</p>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="openModal('addItemModal')">
+                    ➕ Add New Ingredient
+                </button>
+                <form method="POST" action="/inventory/seed_starter" style="display:inline;">
+                    <button type="submit" class="btn btn-secondary" onclick="return confirm('Load starter cafe inventory & recipes?')">
+                        📦 Load Starter Items
+                    </button>
+                </form>
+                <form method="POST" action="/inventory/sync_sales" style="display:inline;">
+                    <button type="submit" class="btn btn-warning" onclick="return confirm('Calculate and deduct ingredients based on your recorded sales history?')">
+                        🔄 Sync Stock from Sales
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Low Stock Warning Banner -->
+        {% if low_stock_count > 0 or out_of_stock_count > 0 %}
+        <div class="low-stock-banner">
+            <h4>⚠️ Attention: Reorder Needed Soon</h4>
+            <p>The following items are running low or out of stock:</p>
+            <div class="low-stock-tags">
+                {% for item in inventory_items %}
+                    {% if item.current_stock <= item.min_threshold %}
+                    <div class="low-stock-tag">
+                        <strong>{{ item.item_name }}</strong>: {{ item.current_stock }} {{ item.unit }} 
+                        (Min: {{ item.min_threshold }})
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Stat Cards Grid -->
+        <div class="cards-grid">
+            <div class="stat-card info-card">
+                <div class="stat-info">
+                    <h3>Total Inventory Value</h3>
+                    <h2>₹{{ total_stock_value }}</h2>
+                </div>
+                <div class="stat-icon">💰</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Tracked Ingredients</h3>
+                    <h2>{{ total_items }}</h2>
+                </div>
+                <div class="stat-icon">🏷️</div>
+            </div>
+
+            <div class="stat-card warning-card">
+                <div class="stat-info">
+                    <h3>Low Stock Alerts</h3>
+                    <h2>{{ low_stock_count }}</h2>
+                </div>
+                <div class="stat-icon">⚠️</div>
+            </div>
+
+            <div class="stat-card danger-card">
+                <div class="stat-info">
+                    <h3>Out of Stock</h3>
+                    <h2>{{ out_of_stock_count }}</h2>
+                </div>
+                <div class="stat-icon">🚨</div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tabs-nav">
+            <div class="tab-link {% if active_tab != 'recipes' %}active{% endif %}" onclick="switchTab('stock')">
+                📦 Stock Levels & Ingredients
+            </div>
+            <div class="tab-link {% if active_tab == 'recipes' %}active{% endif %}" onclick="switchTab('recipes')">
+                📋 Recipe Costing & Profit Margins
+            </div>
+        </div>
+
+        <!-- TAB 1: Stock Levels -->
+        <div id="tab-stock" class="content-card" style="display: {% if active_tab != 'recipes' %}block{% else %}none{% endif %};">
+            <div class="table-toolbar">
+                <div class="filter-group">
+                    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search ingredients..." onkeyup="filterTable()">
+                    <select id="categoryFilter" class="select-input" onchange="filterTable()">
+                        <option value="">All Categories</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat }}">{{ cat }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <span style="font-size:13.5px; color:#7f8c8d;">Showing <strong>{{ total_items }}</strong> items</span>
+                </div>
+            </div>
+
+            {% if inventory_items %}
+            <div class="table-responsive">
+                <table id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Category</th>
+                            <th>Current Stock</th>
+                            <th>Unit</th>
+                            <th>Min Alert</th>
+                            <th>Unit Cost</th>
+                            <th>Total Value</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in inventory_items %}
+                        <tr data-category="{{ item.category }}">
+                            <td><strong>{{ item.item_name }}</strong></td>
+                            <td><span style="color:#64748b; font-size:13px;">{{ item.category }}</span></td>
+                            <td>
+                                <div><strong>{{ item.current_stock }}</strong> {{ item.unit }}</div>
+                                <div class="stock-meter">
+                                    <div class="stock-meter-fill fill-{{ item.status_class }}" style="width: {{ item.stock_percent }}%;"></div>
+                                </div>
+                            </td>
+                            <td>{{ item.unit }}</td>
+                            <td>{{ item.min_threshold }}</td>
+                            <td>₹{{ item.unit_cost }}</td>
+                            <td><strong>₹{{ item.total_value }}</strong></td>
+                            <td>
+                                <span class="badge badge-{{ item.status_class }}">{{ item.status }}</span>
+                            </td>
+                            <td>
+                                <div style="display:flex; gap:6px;">
+                                    <button class="btn btn-primary btn-sm" 
+                                            data-id="{{ item.id }}" 
+                                            data-name="{{ item.item_name }}". 
+                                            data-unit="{{ item.unit }}" 
+                                            data-cost="{{ item.unit_cost }}" 
+                                            onclick="handleRestock(this)">
+                                        ➕ Restock
+                                    </button>
+                                    <button class="btn btn-secondary btn-sm" 
+                                            data-id="{{ item.id }}" 
+                                            data-name="{{ item.item_name }}" 
+                                            data-category="{{ item.category }}" 
+                                            data-stock="{{ item.current_stock }}" 
+                                            data-unit="{{ item.unit }}" 
+                                            data-min="{{ item.min_threshold }}" 
+                                            data-cost="{{ item.unit_cost }}" 
+                                            onclick="handleEdit(this)">
+                                        ✏️ Edit
+                                    </button>
+                                    <form method="POST" action="/inventory/delete/{{ item.id }}" style="display:inline;">
+                                        <button type="submit" class="btn btn-secondary btn-sm" style="color:#e74c3c;" onclick="return confirm('Delete this ingredient?')">
+                                            🗑️
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <div class="icon">📦</div>
+                <h3>No inventory items tracked yet</h3>
+                <p>Start by adding ingredients manually or click "Load Starter Items" to populate standard cafe supplies and recipes.</p>
+                <form method="POST" action="/inventory/seed_starter" style="display:inline;">
+                    <button type="submit" class="btn btn-primary">
+                        📦 Load Starter Cafe Inventory
+                    </button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- TAB 2: Recipe Costing & Profit Margins -->
+        <div id="tab-recipes" class="content-card" style="display: {% if active_tab == 'recipes' %}block{% else %}none{% endif %};">
+            <div class="table-toolbar">
+                <div>
+                    <h2>📋 Recipe Costing & Portion Estimator</h2>
+                    <p style="color:#718096; font-size:14px; margin-top:3px;">
+                        Connect menu products with raw ingredients to calculate recipe Cost of Goods Sold (COGS) and profit margins.
+                    </p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="openModal('addRecipeModal')">
+                        ➕ Add Ingredient to Recipe
+                    </button>
+                </div>
+            </div>
+
+            {% if recipe_cards %}
+            <div class="recipes-grid">
+                {% for r in recipe_cards %}
+                <div class="recipe-card">
+                    <div class="recipe-card-header">
+                        <div>
+                            <h3>{{ r.product_name }}</h3>
+                            <span style="font-size:13px; color:#718096;">Menu Item</span>
+                        </div>
+                        <span class="badge badge-{{ r.margin_badge }}">{{ r.margin_pct }}% Margin</span>
+                    </div>
+
+                    <div class="recipe-metrics">
+                        <div class="recipe-metric-item">
+                            <h5>Selling Price</h5>
+                            <h4>₹{{ r.selling_price }}</h4>
+                        </div>
+                        <div class="recipe-metric-item">
+                            <h5>Recipe Cost</h5>
+                            <h4 style="color:#e67e22;">₹{{ r.total_cogs }}</h4>
+                        </div>
+                        <div class="recipe-metric-item">
+                            <h5>Gross Profit</h5>
+                            <h4 style="color:#27ae60;">₹{{ r.profit }}</h4>
+                        </div>
+                    </div>
+
+                    <div class="recipe-body">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                            <span style="font-size:13px; font-weight:700; color:#4a5568;">Ingredients Breakdown:</span>
+                            <span style="font-size:12.5px; color:#2b6cb0; font-weight:600;">
+                                Capacity: <strong>{{ r.portions_available }}</strong> portions in stock
+                            </span>
+                        </div>
+
+                        <table class="ingredient-table">
+                            <thead>
+                                <tr>
+                                    <th>Ingredient</th>
+                                    <th>Quantity</th>
+                                    <th>Cost</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ing in r.ingredients %}
+                                <tr>
+                                    <td>{{ ing.item_name }}</td>
+                                    <td>{{ ing.quantity_required }} {{ ing.unit }}</td>
+                                    <td>₹{{ ing.ingredient_cost }}</td>
+                                    <td style="text-align:right;">
+                                        <form method="POST" action="/inventory/recipe/delete/{{ ing.recipe_id }}" style="display:inline;">
+                                            <button type="submit" style="background:none; border:none; cursor:pointer; color:#e74c3c; font-size:13px;" title="Remove from recipe">
+                                                ✕
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <div class="icon">☕</div>
+                <h3>No recipes configured</h3>
+                <p>Map your cafe products to ingredients to see cost of goods sold (COGS) and profit margins.</p>
+                <button class="btn btn-primary" onclick="openModal('addRecipeModal')">
+                    ➕ Create First Recipe
+                </button>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <!-- MODAL 1: Add New Inventory Item -->
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>➕ Add New Inventory Item</h3>
+                <button class="modal-close" onclick="closeModal('addItemModal')">&times;</button>
+            </div>
+            <form method="POST" action="/inventory/add">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Item / Ingredient Name *</label>
+                        <input type="text" name="item_name" placeholder="e.g. Espresso Coffee Beans" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" name="category" placeholder="e.g. Coffee Beans, Dairy" list="catSuggestions" required>
+                            <datalist id="catSuggestions">
+                                {% for cat in categories %}
+                                <option value="{{ cat }}">
+                                {% endfor %}
+                                <option value="Coffee Beans">
+                                <option value="Dairy & Milks">
+                                <option value="Syrups & Flavors">
+                                <option value="Bakery">
+                                <option value="Packaging">
+                                <option value="Pantry">
+                                <option value="Tea & Infusions">
+                            </datalist>
+                        </div>
+                        <div class="form-group">
+                            <label>Unit of Measure *</label>
+                            <input type="text" name="unit" placeholder="e.g. kg, liters, units" list="unitSuggestions" required>
+                            <datalist id="unitSuggestions">
+                                <option value="kg">
+                                <option value="liters">
+                                <option value="units">
+                                <option value="packs">
+                                <option value="bottles">
+                                <option value="slices">
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Current Stock Level *</label>
+                            <input type="number" step="0.01" min="0" name="current_stock" value="10" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Low Stock Warning Threshold *</label>
+                            <input type="number" step="0.01" min="0" name="min_threshold" value="3" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Purchase Cost per Unit (₹) *</label>
+                        <input type="number" step="0.01" min="0" name="unit_cost" placeholder="e.g. 550.00" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addItemModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Ingredient</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Quick Restock -->
+    <div id="restockModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>➕ Restock Supply</h3>
+                <button class="modal-close" onclick="closeModal('restockModal')">&times;</button>
+            </div>
+            <form id="restockForm" method="POST" action="">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Ingredient</label>
+                        <input type="text" id="restockItemName" readonly style="background:#f8fafc; font-weight:700;">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity to Add (<span id="restockUnit"></span>) *</label>
+                        <input type="number" step="0.01" min="0.01" name="add_quantity" placeholder="Quantity received" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label>New Cost per Unit (₹) (Optional - leave blank to keep current: ₹<span id="restockCurrentCost"></span>)</label>
+                        <input type="number" step="0.01" min="0" name="new_unit_cost" placeholder="Leave empty to keep current cost">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('restockModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Confirm Restock</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Edit Item Details -->
+    <div id="editItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>✏️ Edit Inventory Item</h3>
+                <button class="modal-close" onclick="closeModal('editItemModal')">&times;</button>
+            </div>
+            <form id="editForm" method="POST" action="">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Item Name *</label>
+                        <input type="text" id="editItemName" name="item_name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <input type="text" id="editCategory" name="category" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Unit *</label>
+                            <input type="text" id="editUnit" name="unit" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Current Stock *</label>
+                            <input type="number" step="0.01" min="0" id="editCurrentStock" name="current_stock" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Min Alert Threshold *</label>
+                            <input type="number" step="0.01" min="0" id="editMinThreshold" name="min_threshold" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Unit Cost (₹) *</label>
+                        <input type="number" step="0.01" min="0" id="editUnitCost" name="unit_cost" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editItemModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: Add Ingredient to Recipe -->
+    <div id="addRecipeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📋 Add Ingredient to Recipe</h3>
+                <button class="modal-close" onclick="closeModal('addRecipeModal')">&times;</button>
+            </div>
+            <form method="POST" action="/inventory/recipe/add">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Product / Menu Item *</label>
+                        <input type="text" name="product_name" list="salesProductList" placeholder="Select or type menu item (e.g. Latte)" required>
+                        <datalist id="salesProductList">
+                            {% for p in sales_products %}
+                            <option value="{{ p[0] }}">
+                            {% endfor %}
+                            <option value="Coffee">
+                            <option value="Latte">
+                            <option value="Tea">
+                            <option value="Burger">
+                            <option value="Sandwich">
+                            <option value="Pizza">
+                            <option value="Cake">
+                            <option value="Fries">
+                        </datalist>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ingredient from Inventory *</label>
+                        <select name="inventory_id" required>
+                            <option value="">-- Choose Ingredient --</option>
+                            {% for item in inventory_items %}
+                            <option value="{{ item.id }}">{{ item.item_name }} ({{ item.unit }}) - ₹{{ item.unit_cost }}/{{ item.unit }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quantity Required per Portion *</label>
+                        <input type="number" step="0.001" min="0.0001" name="quantity_required" placeholder="e.g. 0.02 (for 20g coffee beans) or 1 (for 1 cup)" required>
+                        <small style="color:#718096; display:block; margin-top:4px;">
+                            Example: For 20 grams of beans in a kg unit, enter <strong>0.02</strong>. For 200ml milk in liters, enter <strong>0.20</strong>.
+                        </small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addRecipeModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add to Recipe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function switchTab(tabName) {
+            document.getElementById('tab-stock').style.display = (tabName === 'stock') ? 'block' : 'none';
+            document.getElementById('tab-recipes').style.display = (tabName === 'recipes') ? 'block' : 'none';
+            
+            const tabLinks = document.querySelectorAll('.tab-link');
+            tabLinks[0].classList.toggle('active', tabName === 'stock');
+            tabLinks[1].classList.toggle('active', tabName === 'recipes');
+        }
+
+        function filterTable() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value.toLowerCase();
+            const rows = document.querySelectorAll('#inventoryTable tbody tr');
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                const rowCat = (row.getAttribute('data-category') || '').toLowerCase();
+                const matchesSearch = text.includes(search);
+                const matchesCat = !category || rowCat === category;
+                row.style.display = (matchesSearch && matchesCat) ? '' : 'none';
+            });
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        function handleRestock(btn) {
+            const id = btn.getAttribute('data-id');
+            const name = btn.getAttribute('data-name');
+            const unit = btn.getAttribute('data-unit');
+            const cost = btn.getAttribute('data-cost');
+            openRestockModal(id, name, unit, cost);
+        }
+
+        function handleEdit(btn) {
+            const id = btn.getAttribute('data-id');
+            const name = btn.getAttribute('data-name');
+            const cat = btn.getAttribute('data-category');
+            const stock = btn.getAttribute('data-stock');
+            const unit = btn.getAttribute('data-unit');
+            const minTh = btn.getAttribute('data-min');
+            const cost = btn.getAttribute('data-cost');
+            openEditModal(id, name, cat, stock, unit, minTh, cost);
+        }
+
+        function openRestockModal(id, name, unit, cost) {
+            document.getElementById('restockForm').action = '/inventory/restock/' + id;
+            document.getElementById('restockItemName').value = name;
+            document.getElementById('restockUnit').innerText = unit;
+            document.getElementById('restockCurrentCost').innerText = cost;
+            openModal('restockModal');
+        }
+
+        function openEditModal(id, name, cat, stock, unit, minTh, cost) {
+            document.getElementById('editForm').action = '/inventory/edit/' + id;
+            document.getElementById('editItemName').value = name;
+            document.getElementById('editCategory').value = cat;
+            document.getElementById('editCurrentStock').value = stock;
+            document.getElementById('editUnit').value = unit;
+            document.getElementById('editMinThreshold').value = minTh;
+            document.getElementById('editUnitCost').value = cost;
+            openModal('editItemModal');
+        }
+
+        // Close modal on click outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        };
+    </script>
+
+</body>
+</html>

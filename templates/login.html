@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CafeAnalyst - AI Powered Business Intelligence and Analytics for Specialty Coffee Shops and Cafes">
+    <title>CafeAnalyst — Sign In | Coffeehouse Intelligence</title>
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body class="auth-page">
+
+    <!-- Top Navigation Bar -->
+    <nav class="auth-nav">
+        <a href="/" class="brand-wrapper">
+            <div class="brand-icon-box">
+                ☕
+            </div>
+            <div class="brand-text-group">
+                <span class="brand-title">CafeAnalyst <span>Pro</span></span>
+                <span class="brand-tagline">Coffeehouse Intelligence</span>
+            </div>
+        </a>
+
+        <div class="nav-center-status">
+            <span class="pulse-dot"></span>
+            <span>All Systems Live & Synchronized</span>
+        </div>
+
+        <div class="nav-actions">
+            <a href="/register" class="nav-link">New Cafe?</a>
+            <a href="/register" class="nav-btn">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Main Authentication Workspace (Split Hero Grid) -->
+    <main class="auth-main">
+        <div class="auth-split-grid">
+
+            <!-- Left Side: Brand Value Proposition & Trust -->
+            <section class="hero-column">
+                <div class="hero-pill">
+                    <span>⚡ Version 2.4 Intelligence</span>
+                </div>
+
+                <h1 class="hero-headline">
+                    Precision analytics crafted for <span class="highlight-amber">specialty cafes</span>.
+                </h1>
+
+                <p class="hero-subtext">
+                    Transform raw sales data into actionable profit insights, track coffee bean depletion in real-time, and forecast peak demand with machine learning.
+                </p>
+
+                <!-- Value Proposition Feature Mini-Cards -->
+                <div class="hero-feature-grid">
+                    <div class="feature-mini-card">
+                        <div class="feature-card-header">
+                            <div class="feature-icon-circle">📈</div>
+                            <h2 class="feature-card-title">Sales Trends</h2>
+                        </div>
+                        <p class="feature-card-desc">Interactive daily revenue curves and product breakdown analytics.</p>
+                    </div>
+
+                    <div class="feature-mini-card">
+                        <div class="feature-card-header">
+                            <div class="feature-icon-circle">📦</div>
+                            <h2 class="feature-card-title">Live Inventory</h2>
+                        </div>
+                        <p class="feature-card-desc">Automatic ingredient deductions synced with every coffee cup sold.</p>
+                    </div>
+
+                    <div class="feature-mini-card">
+                        <div class="feature-card-header">
+                            <div class="feature-icon-circle">🤖</div>
+                            <h2 class="feature-card-title">AI Forecasting</h2>
+                        </div>
+                        <p class="feature-card-desc">Linear regression models predicting next month's customer demand.</p>
+                    </div>
+
+                    <div class="feature-mini-card">
+                        <div class="feature-card-header">
+                            <div class="feature-icon-circle">📋</div>
+                            <h2 class="feature-card-title">Executive Reports</h2>
+                        </div>
+                        <p class="feature-card-desc">One-click professional PDF summaries and spreadsheet exports.</p>
+                    </div>
+                </div>
+
+                <!-- Trust Badge -->
+                <div class="trust-strip">
+                    <div class="avatar-stack">
+                        <div class="avatar-item">☕</div>
+                        <div class="avatar-item">🌿</div>
+                        <div class="avatar-item">✨</div>
+                    </div>
+                    <div class="trust-text">
+                        <strong>Empowering 120+ artisan roasters</strong> & cafe managers daily.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Frosted Glassmorphic Auth Card -->
+            <section class="auth-card-wrapper">
+                <div class="auth-card-glow"></div>
+
+                <div class="auth-card">
+                    <div class="card-header-area">
+                        <h2 class="auth-card-title">Welcome back</h2>
+                        <p class="auth-card-subtitle">Sign in to access your cafe telemetry and analytics.</p>
+
+                        <!-- Quick Demo Credentials Helper Button -->
+                        <button type="button" class="demo-helper-pill" id="demoAccountBtn" title="Click to fill test credentials">
+                            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            <span>Quick Demo: Click to auto-fill (admin)</span>
+                        </button>
+                    </div>
+
+                    <!-- Flash / Error Notification -->
+                    {% if error %}
+                    <div class="auth-alert auth-alert-error" id="errorAlert">
+                        <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <div class="alert-message">{{ error }}</div>
+                        <button type="button" class="alert-close-btn" onclick="document.getElementById('errorAlert').style.display='none'">&times;</button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Login Form -->
+                    <form action="/" method="POST" class="auth-form" id="loginForm">
+                        
+                        <!-- Username Field -->
+                        <div class="form-group">
+                            <label for="usernameInput" class="form-label">
+                                <span>Username</span>
+                            </label>
+                            <div class="input-container">
+                                <span class="input-icon-slot">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </span>
+                                <input 
+                                    type="text" 
+                                    id="usernameInput" 
+                                    name="username" 
+                                    class="form-input" 
+                                    placeholder="Enter your cafe username" 
+                                    required 
+                                    autocomplete="username"
+                                    autofocus
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="form-group">
+                            <label for="passwordInput" class="form-label">
+                                <span>Password</span>
+                            </label>
+                            <div class="input-container">
+                                <span class="input-icon-slot">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                    </svg>
+                                </span>
+                                <input 
+                                    type="password" 
+                                    id="passwordInput" 
+                                    name="password" 
+                                    class="form-input has-password-toggle" 
+                                    placeholder="Enter your password" 
+                                    required
+                                    autocomplete="current-password"
+                                >
+                                <button type="button" class="password-toggle-btn" id="togglePasswordBtn" aria-label="Toggle password visibility">
+                                    <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Form Options: Remember Me & Forgot Password -->
+                        <div class="form-options-row">
+                            <label class="custom-checkbox-label">
+                                <input type="checkbox" name="remember" id="rememberMeCheckbox">
+                                <span class="checkbox-custom-indicator">
+                                    <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span>Remember me</span>
+                            </label>
+
+                            <a href="#" class="forgot-password-link" id="forgotPasswordBtn">Forgot password?</a>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-submit-primary" id="loginSubmitBtn">
+                            <span>Sign In to Dashboard</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- Switch Auth Prompt -->
+                    <div class="auth-switch-prompt">
+                        <span>Don't have an account?</span>
+                        <a href="/register">Create an account →</a>
+                    </div>
+
+                    <!-- Security Notice -->
+                    <div class="auth-security-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>
+                        <span>256-bit Encrypted Session Security</span>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="auth-footer">
+        <div class="auth-footer-copy">
+            &copy; 2026 CafeAnalyst. Crafted for Specialty Coffee Houses & Roasters.
+        </div>
+        <div class="auth-footer-links">
+            <a href="#" onclick="alert('CafeAnalyst provides enterprise grade encryption and isolated database tenant security.'); return false;">Security</a>
+            <a href="#" onclick="alert('CafeAnalyst Analytics System — Version 2.4.0'); return false;">About</a>
+            <a href="#" onclick="alert('For support, please contact your CafeAnalyst administrator.'); return false;">Support</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Client Script -->
+    <script>
+        // Password Visibility Toggle
+        const passwordInput = document.getElementById('passwordInput');
+        const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        if (togglePasswordBtn && passwordInput) {
+            togglePasswordBtn.addEventListener('click', () => {
+                const isPassword = passwordInput.getAttribute('type') === 'password';
+                passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+                
+                // Toggle SVG icon
+                if (isPassword) {
+                    eyeIcon.innerHTML = `
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                    `;
+                } else {
+                    eyeIcon.innerHTML = `
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    `;
+                }
+            });
+        }
+
+        // Demo Account Auto-Fill Helper
+        const demoBtn = document.getElementById('demoAccountBtn');
+        const usernameInput = document.getElementById('usernameInput');
+
+        if (demoBtn && usernameInput) {
+            demoBtn.addEventListener('click', () => {
+                usernameInput.value = 'admin';
+                usernameInput.classList.add('pulse-input');
+                passwordInput.focus();
+                
+                // Temporary subtle highlight
+                setTimeout(() => {
+                    usernameInput.classList.remove('pulse-input');
+                }, 600);
+            });
+        }
+
+        // Forgot Password Modal / Alert
+        const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+        if (forgotPasswordBtn) {
+            forgotPasswordBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert("To reset your CafeAnalyst credentials, please contact your cafe system administrator or check with the demo user 'admin'.");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="Oq4Ri4RaD4zDqV2cDINe">
+    <mxGraphModel dx="1030" dy="1726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="850" width="700" x="90" y="-40" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-8" edge="1" parent="1" source="H5IVnJ5oqE8loS_Zz7bZ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H5IVnJ5oqE8loS_Zz7bZ-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-1" parent="1" style="shape=actor;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" value="&lt;font size=&quot;1&quot;&gt;Cafe Owner&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="65" x="407.5" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-9" edge="1" parent="1" source="H5IVnJ5oqE8loS_Zz7bZ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H5IVnJ5oqE8loS_Zz7bZ-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=left;verticalAlign=middle;" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;&lt;b&gt;Fronted&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;HTML&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;CSS&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;JavaScript&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="241" x="319" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-12" edge="1" parent="1" source="H5IVnJ5oqE8loS_Zz7bZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H5IVnJ5oqE8loS_Zz7bZ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;b&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;Backend&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;font-size: 17px;&quot;&gt;Flask(Python)&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="240" x="320" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-5" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;align=left;" value="&lt;b&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;Dtabase&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;SQLite Database&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="193.62" x="140" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-13" edge="1" parent="1" source="H5IVnJ5oqE8loS_Zz7bZ-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="H5IVnJ5oqE8loS_Zz7bZ-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;b&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;AI Module&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Pandas&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Scikit-Learn&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="240" x="520" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;b&gt;&lt;font style=&quot;font-size: 21px;&quot;&gt;Reports &amp;amp; Charts&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Chart.js&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;PDF Report&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="240" x="520" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="H5IVnJ5oqE8loS_Zz7bZ-11" edge="1" parent="1" source="H5IVnJ5oqE8loS_Zz7bZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="H5IVnJ5oqE8loS_Zz7bZ-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

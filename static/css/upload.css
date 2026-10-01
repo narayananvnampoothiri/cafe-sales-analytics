@@ -1,0 +1,341 @@
+/* ==========================================================================
+   CafeAnalyst - Upload Styles
+   Theme: Artisan Cafe & Warm Amber Executive Palette
+   ========================================================================== */
+
+@import url('style.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+}
+
+body {
+    background: #f8f6f3;
+    color: #2b2520;
+    min-height: 100vh;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+nav {
+    width: 100%;
+    height: 75px;
+    background: #171412;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fdfcfb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: #e5ded6;
+    text-decoration: none;
+    margin-left: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all var(--trans-fast);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+}
+
+.menu a:hover,
+.menu a.active {
+    background: rgba(245, 158, 11, 0.18);
+    color: var(--cafe-amber-300);
+}
+
+/* ===========================
+   Container
+=========================== */
+.container {
+    width: 92%;
+    max-width: 1320px;
+    margin: 36px auto;
+}
+
+/* ===========================
+   Upload Card
+=========================== */
+.upload-card {
+    background: white;
+    padding: 36px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+    margin-bottom: 36px;
+}
+
+.upload-card h1 {
+    color: #171412;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.upload-card p {
+    text-align: center;
+    color: #786c62;
+    font-size: 15.5px;
+    margin-bottom: 30px;
+}
+
+.upload-card h2 {
+    text-align: center;
+    color: #171412;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+}
+
+/* ===========================
+   Form Grid
+=========================== */
+.upload-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.upload-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #4b3f36;
+    margin-bottom: 8px;
+}
+
+input,
+select {
+    padding: 12px 14px;
+    border: 1px solid #d4c8bc;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 14.5px;
+    background: #faf8f5;
+    outline: none;
+    transition: all var(--trans-fast);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--cafe-amber-500);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+/* ===========================
+   Buttons
+=========================== */
+button {
+    grid-column: 1 / 4;
+    padding: 14px 24px;
+    background: var(--grad-primary);
+    color: #0c0a09;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+    transition: all var(--trans-base);
+}
+
+button:hover {
+    background: var(--grad-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5);
+}
+
+hr {
+    margin: 40px 0;
+    border: none;
+    border-top: 1px solid #ebdcd0;
+}
+
+input[type=file] {
+    width: 100%;
+    background: #faf8f5;
+    padding: 14px;
+    cursor: pointer;
+}
+
+/* ===========================
+   Success Message
+=========================== */
+.success-message {
+    background: rgba(16, 185, 129, 0.12);
+    color: #065f46;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* ===========================
+   Sales Table
+=========================== */
+.sales-table {
+    background: white;
+    padding: 32px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+    overflow-x: auto;
+}
+
+.sales-table h2 {
+    text-align: center;
+    color: #171412;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid #ebdcd0;
+}
+
+th {
+    background: #1e1916;
+    color: #fdfaf7;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    padding: 14px 18px;
+    text-align: center;
+}
+
+td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f2eae2;
+    text-align: center;
+    font-size: 14.5px;
+    color: #3b312a;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: #faf6f0;
+}
+
+table a {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+table a:first-child {
+    color: var(--cafe-amber-700);
+}
+
+table a:last-child {
+    color: #dc2626;
+}
+
+/* ===========================
+   Scroll Buttons
+=========================== */
+.scroll-buttons {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.scroll-buttons button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 50%;
+    background: #171412;
+    color: var(--cafe-amber-300);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transition: all var(--trans-fast);
+}
+
+.scroll-buttons button:hover {
+    background: var(--cafe-amber-500);
+    color: #0c0a09;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   Mobile
+=========================== */
+@media (max-width: 900px) {
+    .upload-form {
+        grid-template-columns: 1fr;
+    }
+    button {
+        grid-column: auto;
+    }
+    nav {
+        padding: 0 20px;
+        height: auto;
+        flex-direction: column;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        gap: 12px;
+    }
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+    .menu a {
+        margin-left: 0;
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+}
