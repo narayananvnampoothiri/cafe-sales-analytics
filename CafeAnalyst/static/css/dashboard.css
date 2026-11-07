@@ -1,0 +1,403 @@
+/* ==========================================================================
+   CafeAnalyst - Dashboard Styles
+   Theme: Artisan Cafe & Warm Amber Executive Palette
+   ========================================================================== */
+
+@import url('style.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+}
+
+body {
+    background: #f8f6f3;
+    color: #2b2520;
+    min-height: 100vh;
+}
+
+/* ===========================
+   Navigation Bar
+=========================== */
+nav {
+    width: 100%;
+    height: 75px;
+    background: #171412;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fdfcfb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo span {
+    color: var(--cafe-amber-400);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: #e5ded6;
+    text-decoration: none;
+    margin-left: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all var(--trans-fast);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+}
+
+.menu a:hover,
+.menu a.active {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--cafe-amber-300);
+}
+
+/* ===========================
+   Main Container
+=========================== */
+.container {
+    width: 92%;
+    max-width: 1320px;
+    margin: 36px auto;
+}
+
+/* ===========================
+   Welcome Section
+=========================== */
+.welcome-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    background: white;
+    padding: 24px 32px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+}
+
+.welcome-section h1 {
+    color: #171412;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.welcome-section p {
+    color: #786c62;
+    font-size: 16px;
+}
+
+.date-box {
+    background: #faf6f0;
+    padding: 14px 22px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    text-align: center;
+}
+
+.date-box h3 {
+    color: var(--cafe-amber-600);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.date-box p {
+    color: #2b2520;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+/* ===========================
+   Statistics Metric Cards
+=========================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 36px;
+}
+
+.card {
+    background: white;
+    padding: 26px 24px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+    text-align: left;
+    transition: all var(--trans-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--grad-primary);
+    opacity: 0.8;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -4px rgba(28, 24, 21, 0.12);
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.card h3 {
+    color: #786c62;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    color: #171412;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+/* ===========================
+   Charts & Visualizations
+=========================== */
+.chart-card,
+.chart {
+    background: white;
+    padding: 32px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+    margin-bottom: 36px;
+}
+
+.section-header {
+    margin-bottom: 24px;
+}
+
+.section-header h2,
+.chart h2 {
+    color: #171412;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.section-header p {
+    color: #786c62;
+    font-size: 15px;
+}
+
+.chart-card img,
+.chart img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+    margin: 15px auto 0;
+    border-radius: var(--radius-md);
+}
+
+.month-filter {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.month-filter label {
+    font-weight: 600;
+    color: #4b3f36;
+    font-size: 15px;
+}
+
+.month-filter input {
+    padding: 9px 14px;
+    border: 1px solid #d4c8bc;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    background: #faf8f5;
+    outline: none;
+    transition: border-color var(--trans-fast);
+}
+
+.month-filter input:focus {
+    border-color: var(--cafe-amber-500);
+}
+
+.month-filter button {
+    padding: 9px 22px;
+    background: var(--grad-primary);
+    color: #0c0a09;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    transition: all var(--trans-fast);
+}
+
+.month-filter button:hover {
+    background: var(--grad-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+}
+
+/* ===========================
+   Bottom Grid (Category + Orders)
+=========================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 28px;
+    margin-top: 36px;
+}
+
+.top-products,
+.recent-orders {
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+}
+
+.top-products h2,
+.recent-orders h2 {
+    color: #171412;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+}
+
+.top-products img {
+    width: 100%;
+    max-width: 450px;
+    display: block;
+    margin: auto;
+    border-radius: var(--radius-md);
+}
+
+/* ===========================
+   Tables
+=========================== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid #ebdcd0;
+}
+
+table th {
+    background: #1e1916;
+    color: #fdfaf7;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    padding: 14px 18px;
+    text-align: center;
+}
+
+table th:first-child {
+    text-align: left;
+}
+
+table td {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid #f2eae2;
+    font-size: 14.5px;
+    color: #3b312a;
+}
+
+table td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover td {
+    background: #faf6f0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+        height: auto;
+        flex-direction: column;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        gap: 12px;
+    }
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+    .menu a {
+        margin-left: 0;
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .welcome-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CafeAnalyst - Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body>
+
+        <!-- Navigation Bar -->
+
+    <nav>
+
+        <div class="logo">
+            ☕ CafeAnalyst
+        </div>
+
+        <div class="menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/upload">Upload</a>
+            <a href="/ai-insights">AI Insights</a>
+            <a href="/reports">Reports</a>
+            <a href="/inventory">Inventory</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+        <!-- Dashboard Heading -->
+     <div class="container">
+
+        <div class="welcome-section">
+            <div>
+                <h1>Welcome back, {{ session["username"] }} 👋</h1>
+                <p>Here's a live overview of your cafe business today.</p>
+            </div>
+
+            <div class="date-box">
+            <h3>📅 Today</h3>
+            <p>{{ today }}</p>
+            </div>
+        </div>
+        
+        <!-- Statistics Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <h2>₹{{ total_revenue }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <h2>{{ total_sales }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Products Sold</h3>
+            <h2>{{ total_products }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Best Selling Product</h3>
+            <h2>{{ best_product }}</h2>
+        </div>
+
+    </div>
+
+        <!-- Sales Chart -->
+
+   <div class="chart-card">
+
+    <div class="section-header">
+
+        <div>
+            <h2>📈 Sales Trend (Last 30 Days)</h2>
+            <p>Daily revenue generated over the last 30 days.</p>
+        </div>
+
+    </div>
+
+        <img src="{{ url_for('static', filename='charts/sales_trend.png') }}"
+             alt="Sales Trend">
+
+    </div>
+    <div class="chart">
+
+    <h2>📊 Product-wise Revenue</h2>
+
+    <form method="GET" action="/dashboard" class="month-filter">
+
+        <label>Select Month:</label>
+
+        <input type="month"
+               name="month"
+               value="{{ selected_month }}">
+
+        <button type="submit">View</button>
+
+    </form>
+
+    <img src="{{ url_for('static', filename='charts/product_bar.png') }}?t={{ total_sales }}{{ selected_month }}"
+     alt="Product Revenue">
+</div>
+        <!-- Bottom Section -->
+
+    <div class="dashboard-grid">
+
+        <!-- Sales by Category -->
+
+    <div class="top-products">
+
+        <h2>📊 Sales by Category</h2>
+
+        <img src="{{ url_for('static', filename='charts/category_chart.png') }}"
+             alt="Category Chart">
+
+    </div>
+
+    <!-- Recent Orders -->
+
+    <div class="recent-orders">
+
+        <h2>📋 Recent Sales</h2>
+
+        <table>
+
+            <tr>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Revenue</th>
+            </tr>
+
+            {% for sale in recent_sales %}
+
+            <tr>
+
+                <td>{{ sale[2] }}</td>
+
+                <td>{{ sale[3] }}</td>
+
+                <td>{{ sale[5] }}</td>
+                
+                <td>₹{{ sale[8] }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+/* ==========================================================================
+   CafeAnalyst Global Design System & Theme Tokens
+   Artisan Cafe & Warm Amber Executive Palette
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+:root {
+    /* Brand Palette - Artisan Coffee & Amber Warmth */
+    --cafe-amber-50:  #fffbeb;
+    --cafe-amber-100: #fef3c7;
+    --cafe-amber-200: #fde68a;
+    --cafe-amber-300: #fcd34d;
+    --cafe-amber-400: #fbbf24;
+    --cafe-amber-500: #f59e0b; /* Primary Brand Amber */
+    --cafe-amber-600: #d97706; /* Rich Caramel */
+    --cafe-amber-700: #b45309; /* Roasted Gold */
+    --cafe-amber-800: #92400e;
+    --cafe-amber-900: #78350f;
+
+    /* Espresso Neutrals (Deep Roasted Warm Darks) */
+    --cafe-espresso-950: #0c0a09; /* Absolute Dark Roasted Coffee */
+    --cafe-espresso-900: #171412; /* Rich Obsidian */
+    --cafe-espresso-850: #1f1a17; /* Dark Wood / Panel */
+    --cafe-espresso-800: #29231f; /* Card Surface */
+    --cafe-espresso-700: #38302a; /* Elevated Surface / Border */
+    --cafe-espresso-600: #52473e;
+    --cafe-espresso-500: #736458;
+    --cafe-espresso-400: #9c8a7c; /* Subtitle / Muted Text */
+    --cafe-espresso-300: #c4b6a8;
+    --cafe-espresso-200: #e2d9cf;
+    --cafe-espresso-100: #f2ede6; /* Warm Cream */
+    --cafe-espresso-50:  #fdfcf9; /* Pure Foam Cream */
+
+    /* Accent & Semantic Accents */
+    --accent-emerald:     #10b981;
+    --accent-emerald-dim: rgba(16, 185, 129, 0.15);
+    --accent-ruby:        #ef4444;
+    --accent-ruby-dim:    rgba(239, 68, 68, 0.15);
+    --accent-sapphire:    #3b82f6;
+
+    /* Glassmorphism & Translucency */
+    --glass-card-bg:      rgba(23, 19, 17, 0.82);
+    --glass-card-border:  rgba(245, 158, 11, 0.18);
+    --glass-card-shadow:  0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(245, 158, 11, 0.08);
+    --glass-input-bg:     rgba(12, 10, 9, 0.65);
+    --glass-input-border: rgba(255, 255, 255, 0.12);
+
+    /* Gradients */
+    --grad-primary:       linear-gradient(135deg, #f59e0b 0%, #d97706 60%, #b45309 100%);
+    --grad-primary-hover: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%);
+    --grad-dark-overlay:  linear-gradient(180deg, rgba(12, 10, 9, 0.82) 0%, rgba(17, 14, 12, 0.92) 100%);
+    --grad-glass-border:  linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(255, 255, 255, 0.05), rgba(245, 158, 11, 0.15));
+
+    /* Typography */
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    /* Radii */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --trans-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    --trans-base: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    --trans-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--cafe-espresso-100);
+    background-color: var(--cafe-espresso-950);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Micro Focus States */
+:focus-visible {
+    outline: 2px solid var(--cafe-amber-500);
+    outline-offset: 2px;
+}
+
+/* Universal Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+a {
+    color: var(--cafe-amber-400);
+    text-decoration: none;
+    transition: color var(--trans-fast);
+}
+
+a:hover {
+    color: var(--cafe-amber-300);
+}
+
+/* Badge Utilities */
+.cafe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.cafe-badge-amber {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--cafe-amber-300);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.cafe-badge-emerald {
+    background: var(--accent-emerald-dim);
+    color: #6ee7b7;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Pulsing Live Dot */
+.pulse-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 13px;
+    height: 13px;
+    background-color: rgba(16, 185, 129, 0.4);
+    border-radius: 50%;
+    animation: pulseGlow 2s infinite ease-out;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.6); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}

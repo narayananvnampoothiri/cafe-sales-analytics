@@ -1,0 +1,315 @@
+/* ==========================================================================
+   CafeAnalyst - Reports Styles
+   Theme: Artisan Cafe & Warm Amber Executive Palette
+   ========================================================================== */
+
+@import url('style.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+}
+
+body {
+    background: #f8f6f3;
+    color: #2b2520;
+    min-height: 100vh;
+}
+
+/* ===========================
+   Navigation Bar
+=========================== */
+nav {
+    width: 100%;
+    height: 75px;
+    background: #171412;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fdfcfb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: #e5ded6;
+    text-decoration: none;
+    margin-left: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all var(--trans-fast);
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+}
+
+.menu a:hover,
+.menu a.active {
+    background: rgba(245, 158, 11, 0.18);
+    color: var(--cafe-amber-300);
+}
+
+/* ===========================
+   Main Container
+=========================== */
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 40px auto;
+}
+
+.container h1 {
+    text-align: center;
+    color: #171412;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.container p {
+    text-align: center;
+    color: #786c62;
+    font-size: 16px;
+    margin-bottom: 36px;
+}
+
+/* ===========================
+   Report Cards
+=========================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 36px;
+}
+
+.card {
+    background: white;
+    padding: 26px 22px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+    text-align: center;
+    transition: all var(--trans-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--grad-primary);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -4px rgba(28, 24, 21, 0.12);
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.card h3 {
+    color: #786c62;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+}
+
+.card h2 {
+    color: #171412;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+/* ===========================
+   Report Table
+=========================== */
+.report-box {
+    background: white;
+    padding: 32px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+    margin-bottom: 36px;
+}
+
+.report-box h2 {
+    text-align: center;
+    color: #171412;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid #ebdcd0;
+}
+
+th {
+    background: #1e1916;
+    color: #fdfaf7;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    padding: 14px 18px;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid #f2eae2;
+    font-size: 14.5px;
+    color: #3b312a;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: #faf6f0;
+}
+
+/* ===========================
+   Download Section
+=========================== */
+.download {
+    background: white;
+    padding: 32px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #ebdcd0;
+    box-shadow: 0 4px 20px -2px rgba(28, 24, 21, 0.05);
+    text-align: center;
+}
+
+.download h2 {
+    color: #171412;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+.download button {
+    width: 250px;
+    padding: 14px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--grad-primary);
+    color: #0c0a09;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+    transition: all var(--trans-base);
+}
+
+.download button:hover {
+    background: var(--grad-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.5);
+}
+
+/* ===========================
+   Scroll Buttons
+=========================== */
+.scroll-buttons {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.scroll-buttons button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 50%;
+    background: #171412;
+    color: var(--cafe-amber-300);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transition: all var(--trans-fast);
+}
+
+.scroll-buttons button:hover {
+    background: var(--cafe-amber-500);
+    color: #0c0a09;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+        height: auto;
+        flex-direction: column;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        gap: 12px;
+    }
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+    .menu a {
+        margin-left: 0;
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .download button {
+        width: 100%;
+        margin: 8px 0;
+    }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CafeAnalyst - AI Insights</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ai_insights.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <div class="logo">
+            ☕ CafeAnalyst
+        </div>
+
+        <div class="menu">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/upload">Upload</a>
+            <a href="/ai-insights">AI Insights</a>
+            <a href="/reports">Reports</a>
+            <a href="/inventory">Inventory</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <h1>🤖 AI Business Insights</h1>
+
+        <p>Your AI Assistant has analyzed today's business data.</p>
+
+        <!-- Insight Cards -->
+            <div class="card">
+
+                <h2>⭐ Best Selling Product</h2>
+
+                {% if best_product %}
+
+                <p>
+
+                <strong>{{ best_product[0] }}</strong>
+
+                <br><br>
+
+                Sold <strong>{{ best_product[1] }}</strong> items.
+
+                </p>
+
+                {% else %}
+
+                <p>No sales data available.</p>
+
+                 {% endif %}
+
+            </div>
+
+            <div class="card">
+
+    <h2>📦 Sales by Category</h2>
+
+    {% if category_sales %}
+
+        {% for category in category_sales %}
+
+            <p>
+
+                <strong>{{ category[0] }}</strong>
+
+                — ₹{{ "%.2f"|format(category[1]) }}
+
+            </p>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No category data available.</p>
+
+    {% endif %}
+
+</div>
+
+            <div class="card">
+
+                <h2>💰 Total Revenue</h2>
+
+                <p>
+
+                    ₹ <strong>{{ "%.2f"|format(total_revenue) }}</strong>
+
+                 </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>💳 Most Used Payment Method</h2>
+
+                    {% if payment_method %}
+
+                <p>
+                    <strong>{{ payment_method[0] }}</strong>
+                    <br><br>
+                     Used <strong>{{ payment_method[1] }}</strong> times.
+                </p>
+
+                        {% else %}
+
+                <p>No payment data available.</p>
+
+                {% endif %}
+
+            </div>
+
+            <div class="card">
+                <h2>🚀 AI Recommendation</h2>
+                <p>
+                   {{ recommendation }}
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Prediction Section -->
+        <div class="card">
+
+            <h2>🔮 Sales Prediction</h2>
+
+            {% if prediction %}
+
+            <p>
+
+            Tomorrow's Expected Sales
+
+            <br><br>
+
+            <strong>₹{{ "%.2f"|format(prediction) }}</strong>
+
+            </p>
+
+            {% else %}
+
+            <p>
+
+            Not enough sales data to make a prediction.
+
+            </p>
+
+             {% endif %}
+
+        </div>
+    
+
+    </div>
+
+</body>
+
+</html>
